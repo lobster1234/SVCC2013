@@ -1,0 +1,24 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+
+GET    /                       controllers.Application.index
+
+GET    /persons                controllers.SimpleAPI.getAll
+
+GET		/persons/default		controllers.SimpleAPI.getByFirstName(first="Manish")
+
+GET    /persons/first/:first   controllers.SimpleAPI.getByFirstName(first)
+
+GET    /persons/last/:last     controllers.SimpleAPI.getByLastName(last)
+
+GET    /persons/zip/:zip       controllers.SimpleAPI.getbyZip(zip:Int)
+
+POST   /persons                controllers.SimpleAPI.add
+
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET    /assets/*file           controllers.Assets.at(path="/public", file)
